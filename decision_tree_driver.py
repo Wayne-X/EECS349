@@ -11,30 +11,30 @@ from modules.predictions import *
 #   options can be found in README.md
 
 options = {
-    'train' : 'data/btrain.csv',
+    'train': 'data/btrain.csv',
     'validate': 'data/bvalidate.csv',
     'predict': 'data/btest.csv',
     'limit_splits_on_numerical': 5,
     'limit_depth': 20,
     'print_tree': True,
-    'print_dnf' : False,
-    'prune' : 'data/bvalidate.csv',
-    'learning_curve' : {
-        'upper_bound' : 0.05,
-        'increment' : 0.001
+    'print_dnf': False,
+    'prune': 'data/bvalidate.csv',
+    'learning_curve': {
+        'upper_bound': 1,
+        'increment': 0.1
     }
 }
 
-def decision_tree_driver(train, validate = False, predict = False, prune = False,
-    limit_splits_on_numerical = False, limit_depth = False, print_tree = False,
-    print_dnf = False, learning_curve = False):
-    
+
+def decision_tree_driver(train, validate=False, predict=False, prune=False,
+                         limit_splits_on_numerical=False, limit_depth=False, print_tree=False,
+                         print_dnf=False, learning_curve=False):
     train_set, attribute_metadata = parse(train, False)
     if limit_splits_on_numerical != False:
         numerical_splits_count = [limit_splits_on_numerical] * len(attribute_metadata)
     else:
         numerical_splits_count = [float("inf")] * len(attribute_metadata)
-        
+
     if limit_depth != False:
         depth = limit_depth
     else:
@@ -50,13 +50,13 @@ def decision_tree_driver(train, validate = False, predict = False, prune = False
     if prune != False:
         print '###\n#  Pruning\n###'
         pruning_set, _ = parse(prune, False)
-        reduced_error_pruning(tree,train_set,pruning_set)
+        reduced_error_pruning(tree, pruning_set)
         print ''
 
     # print tree visually
     if print_tree:
         print '###\n#  Decision Tree\n###'
-        cursor = open('./output/tree.txt','w+')
+        cursor = open('./output/tree.txt', 'w+')
         cursor.write(tree.print_tree())
         cursor.close()
         print 'Decision Tree written to /output/tree'
@@ -65,7 +65,7 @@ def decision_tree_driver(train, validate = False, predict = False, prune = False
     # print tree in disjunctive normalized form
     if print_dnf:
         print '###\n#  Decision Tree as DNF\n###'
-        cursor = open('./output/DNF.txt','w+')
+        cursor = open('./output/DNF.txt', 'w+')
         cursor.write(tree.print_dnf_tree())
         cursor.close()
         print 'Decision Tree written to /output/DNF'
@@ -75,7 +75,7 @@ def decision_tree_driver(train, validate = False, predict = False, prune = False
     if validate != False:
         print '###\n#  Validating\n###'
         validate_set, _ = parse(validate, False)
-        accuracy = validation_accuracy(tree,validate_set)
+        accuracy = validation_accuracy(tree, validate_set)
         print "Accuracy on validation set: " + str(accuracy)
         print ''
 
@@ -88,10 +88,12 @@ def decision_tree_driver(train, validate = False, predict = False, prune = False
     # generate a learning curve using the validation set
     if learning_curve and validate:
         print '###\n#  Generating Learning Curve\n###'
-        iterations = 20 # number of times to test each size
-        get_graph(train_set, attribute_metadata, validate_set, 
-            numerical_splits_count, depth, 5, 0, learning_curve['upper_bound'],
-            learning_curve['increment'])
+        validate_set, _ = parse(validate, False)
+        iterations = 10  # number of times to test each size
+        get_graph(train_set, attribute_metadata, validate_set,
+                  numerical_splits_count, depth, iterations, 0, learning_curve['upper_bound'],
+                  learning_curve['increment'])
         print ''
 
-tree = decision_tree_driver( **options )
+
+tree = decision_tree_driver(**options)
