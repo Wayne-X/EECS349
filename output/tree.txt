@@ -2,51 +2,842 @@ oppnuminjured < 4.0
   numinjured < -1.0
     0
   numinjured >= -1.0
-    rundifferential < 120.0
-      opprundifferential < 106.0
-        numinjured < 1.0
-          0
-        numinjured >= 1.0
-          oppnuminjured < 3.0
-            oppwinningpercent < 0.225951323
-              opprundifferential < 16.0
-                1
-              opprundifferential >= 16.0
-                winpercent < 0.661899761
-                  opprundifferential < 25.0
-                    1
-                  opprundifferential >= 25.0
-                    winpercent < 0.630342742
-                      oppdayssincegame < 5.0
-                        opprundifferential < 79.0
-                          opprundifferential < 76.0
-                            oppwinningpercent < 0.006858342
-                              1
-                            oppwinningpercent >= 0.006858342
-                              0
-                          opprundifferential >= 76.0
-                            1
-                        opprundifferential >= 79.0
-                          0
-                      oppdayssincegame >= 5.0
-                        1
-                    winpercent >= 0.630342742
-                      1
-                winpercent >= 0.661899761
-                  0
-            oppwinningpercent >= 0.225951323
-              numinjured < 2.0
-                oppnuminjured < 2.0
-                  1
-                oppnuminjured >= 2.0
-                  0
-              numinjured >= 2.0
-                1
-          oppnuminjured >= 3.0
+    numinjured < 1.0
+      temperature < 74.72680274
+        dayssincegame < 2.0
+          winpercent < 0.568030985
             0
-      opprundifferential >= 106.0
-        0
-    rundifferential >= 120.0
-      0
+          winpercent >= 0.568030985
+            1
+        dayssincegame >= 2.0
+          0
+      temperature >= 74.72680274
+        1
+    numinjured >= 1.0
+      oppnuminjured < 3.0
+        oppwinningpercent < 0.195529965
+          winpercent < 0.768189401
+            opprundifferential < 19.0
+              1
+            opprundifferential >= 19.0
+              oppwinningpercent < 0.017852798
+                numinjured < 2.0
+                  rundifferential < 92.0
+                    oppdayssincegame < 4.0
+                      oppdayssincegame < 3.0
+                        winpercent < 0.498324482
+                          oppwinningpercent < -0.027876735
+                            winpercent < 0.441275233
+                              0
+                            winpercent >= 0.441275233
+                              1
+                          oppwinningpercent >= -0.027876735
+                            1
+                        winpercent >= 0.498324482
+                          0
+                      oppdayssincegame >= 3.0
+                        temperature < 68.57432952
+                          1
+                        temperature >= 68.57432952
+                          opprundifferential < 40.0
+                            1
+                          opprundifferential >= 40.0
+                            weather = 0
+                              1
+                            weather = 1
+                              0
+                            weather = -1
+                              0
+                    oppdayssincegame >= 4.0
+                      0
+                  rundifferential >= 92.0
+                    1
+                numinjured >= 2.0
+                  startingpitcher = 1
+                    1
+                  startingpitcher = 2
+                    1
+                  startingpitcher = 3
+                    oppstartingpitcher = 2
+                      1
+                    oppstartingpitcher = 4
+                      1
+                    oppstartingpitcher = 5
+                      0
+                  startingpitcher = None
+                    1
+                  startingpitcher = 5
+                    1
+                  startingpitcher = 4
+                    1
+              oppwinningpercent >= 0.017852798
+                startingpitcher = 1
+                  0
+                startingpitcher = 2
+                  oppstartingpitcher = None
+                    1
+                  oppstartingpitcher = 2
+                    0
+                  oppstartingpitcher = 3
+                    1
+                  oppstartingpitcher = 4
+                    0
+                  oppstartingpitcher = 5
+                    0
+                startingpitcher = 3
+                  0
+                startingpitcher = None
+                  0
+                startingpitcher = 5
+                  0
+                startingpitcher = 4
+                  0
+          winpercent >= 0.768189401
+            0
+        oppwinningpercent >= 0.195529965
+          numinjured < 2.0
+            oppnuminjured < 2.0
+              oppnuminjured < 1.0
+                1
+              oppnuminjured >= 1.0
+                oppwinningpercent < 0.882886674
+                  opprundifferential < 42.0
+                    winpercent < 0.469406287
+                      rundifferential < 53.0
+                        oppwinningpercent < 0.622313087
+                          dayssincegame < 2.0
+                            1
+                          dayssincegame >= 2.0
+                            startingpitcher = 1
+                              oppdayssincegame < 3.0
+                                0
+                              oppdayssincegame >= 3.0
+                                1
+                            startingpitcher = 2
+                              temperature < 81.43114427
+                                weather = 1
+                                  temperature < 78.56332079
+                                    0
+                                  temperature >= 78.56332079
+                                    1
+                                weather = -1
+                                  0
+                              temperature >= 81.43114427
+                                1
+                            startingpitcher = 3
+                              0
+                            startingpitcher = None
+                              1
+                            startingpitcher = 5
+                              weather = 0
+                                0
+                              weather = -1
+                                1
+                            startingpitcher = 4
+                              1
+                        oppwinningpercent >= 0.622313087
+                          weather = 1
+                            0
+                          weather = None
+                            1
+                      rundifferential >= 53.0
+                        1
+                    winpercent >= 0.469406287
+                      oppdayssincegame < 2.0
+                        homeaway = 0
+                          1
+                        homeaway = 1
+                          0
+                      oppdayssincegame >= 2.0
+                        1
+                  opprundifferential >= 42.0
+                    dayssincegame < 2.0
+                      rundifferential < 47.0
+                        1
+                      rundifferential >= 47.0
+                        startingpitcher = 1
+                          weather = 1
+                            1
+                          weather = -1
+                            0
+                        startingpitcher = 2
+                          0
+                        startingpitcher = 3
+                          1
+                        startingpitcher = 4
+                          1
+                        startingpitcher = 5
+                          oppstartingpitcher = 1
+                            1
+                          oppstartingpitcher = 5
+                            0
+                    dayssincegame >= 2.0
+                      oppdayssincegame < 5.0
+                        rundifferential < 13.0
+                          weather = 0
+                            temperature < 63.43260443
+                              1
+                            temperature >= 63.43260443
+                              0
+                          weather = 1
+                            1
+                          weather = None
+                            0
+                          weather = -1
+                            oppnuminjured < 1.0
+                              1
+                            oppnuminjured >= 1.0
+                              0
+                        rundifferential >= 13.0
+                          rundifferential < 62.0
+                            opprundifferential < 43.0
+                              1
+                            opprundifferential >= 43.0
+                              opprundifferential < 99.0
+                                dayssincegame < 4.0
+                                  weather = 0
+                                    startingpitcher = 1
+                                      1
+                                    startingpitcher = 2
+                                      0
+                                    startingpitcher = 3
+                                      oppstartingpitcher = 1
+                                        0
+                                      oppstartingpitcher = 2
+                                        0
+                                      oppstartingpitcher = 4
+                                        1
+                                      oppstartingpitcher = 5
+                                        0
+                                    startingpitcher = 4
+                                      oppstartingpitcher = 1
+                                        1
+                                      oppstartingpitcher = 2
+                                        0
+                                      oppstartingpitcher = 3
+                                        1
+                                    startingpitcher = 5
+                                      dayssincegame < 3.0
+                                        0
+                                      dayssincegame >= 3.0
+                                        1
+                                  weather = 1
+                                    oppstartingpitcher = 1
+                                      startingpitcher = 1
+                                        1
+                                      startingpitcher = 4
+                                        1
+                                      startingpitcher = 5
+                                        0
+                                    oppstartingpitcher = 2
+                                      1
+                                    oppstartingpitcher = 3
+                                      0
+                                    oppstartingpitcher = None
+                                      startingpitcher = 1
+                                        0
+                                      startingpitcher = 5
+                                        1
+                                    oppstartingpitcher = 5
+                                      startingpitcher = 2
+                                        1
+                                      startingpitcher = 4
+                                        0
+                                    oppstartingpitcher = 4
+                                      startingpitcher = 2
+                                        0
+                                      startingpitcher = 4
+                                        1
+                                  weather = None
+                                    1
+                                  weather = -1
+                                    homeaway = 0
+                                      oppstartingpitcher = 1
+                                        0
+                                      oppstartingpitcher = 2
+                                        0
+                                      oppstartingpitcher = 3
+                                        1
+                                      oppstartingpitcher = 4
+                                        0
+                                      oppstartingpitcher = 5
+                                        1
+                                    homeaway = 1
+                                      oppstartingpitcher = 1
+                                        1
+                                      oppstartingpitcher = 2
+                                        1
+                                      oppstartingpitcher = 4
+                                        1
+                                    homeaway = None
+                                      0
+                                dayssincegame >= 4.0
+                                  weather = 0
+                                    startingpitcher = 1
+                                      0
+                                    startingpitcher = 2
+                                      1
+                                    startingpitcher = 3
+                                      0
+                                    startingpitcher = 4
+                                      0
+                                    startingpitcher = 5
+                                      1
+                                  weather = 1
+                                    oppstartingpitcher = 1
+                                      1
+                                    oppstartingpitcher = 3
+                                      numinjured < 1.0
+                                        0
+                                      numinjured >= 1.0
+                                        1
+                                    oppstartingpitcher = 4
+                                      1
+                                  weather = None
+                                    1
+                                  weather = -1
+                                    1
+                              opprundifferential >= 99.0
+                                0
+                          rundifferential >= 62.0
+                            startingpitcher = 1
+                              1
+                            startingpitcher = 2
+                              1
+                            startingpitcher = 3
+                              oppstartingpitcher = 1
+                                1
+                              oppstartingpitcher = 3
+                                0
+                              oppstartingpitcher = 4
+                                weather = 0
+                                  0
+                                weather = 1
+                                  1
+                            startingpitcher = None
+                              0
+                            startingpitcher = 5
+                              1
+                            startingpitcher = 4
+                              weather = 0
+                                oppstartingpitcher = 1
+                                  0
+                                oppstartingpitcher = 3
+                                  1
+                                oppstartingpitcher = None
+                                  1
+                                oppstartingpitcher = 5
+                                  0
+                              weather = 1
+                                1
+                              weather = None
+                                0
+                              weather = -1
+                                1
+                      oppdayssincegame >= 5.0
+                        0
+                oppwinningpercent >= 0.882886674
+                  1
+            oppnuminjured >= 2.0
+              weather = 0
+                homeaway = 0
+                  0
+                homeaway = 1
+                  oppstartingpitcher = 1
+                    startingpitcher = 1
+                      0
+                    startingpitcher = 4
+                      1
+                    startingpitcher = 5
+                      0
+                  oppstartingpitcher = 2
+                    0
+                  oppstartingpitcher = 3
+                    0
+                  oppstartingpitcher = 4
+                    startingpitcher = 1
+                      0
+                    startingpitcher = 2
+                      0
+                    startingpitcher = 3
+                      0
+                    startingpitcher = 5
+                      0
+                  oppstartingpitcher = 5
+                    startingpitcher = 1
+                      0
+                    startingpitcher = 2
+                      0
+                    startingpitcher = 3
+                      0
+                    startingpitcher = 4
+                      1
+                    startingpitcher = 5
+                      0
+              weather = 1
+                startingpitcher = 1
+                  oppstartingpitcher = 1
+                    0
+                  oppstartingpitcher = 2
+                    homeaway = 0
+                      0
+                    homeaway = 1
+                      0
+                  oppstartingpitcher = 3
+                    homeaway = 0
+                      0
+                    homeaway = 1
+                      0
+                  oppstartingpitcher = 4
+                    1
+                  oppstartingpitcher = 5
+                    0
+                startingpitcher = 2
+                  oppstartingpitcher = 1
+                    homeaway = 0
+                      0
+                    homeaway = 1
+                      0
+                  oppstartingpitcher = 3
+                    0
+                  oppstartingpitcher = None
+                    0
+                  oppstartingpitcher = 5
+                    0
+                  oppstartingpitcher = 4
+                    1
+                startingpitcher = 3
+                  oppstartingpitcher = 1
+                    0
+                  oppstartingpitcher = 2
+                    homeaway = 0
+                      0
+                    homeaway = 1
+                      1
+                  oppstartingpitcher = 5
+                    homeaway = 0
+                      0
+                    homeaway = 1
+                      0
+                startingpitcher = None
+                  0
+                startingpitcher = 5
+                  homeaway = 0
+                    0
+                  homeaway = 1
+                    oppstartingpitcher = 2
+                      0
+                    oppstartingpitcher = 3
+                      1
+                    oppstartingpitcher = 5
+                      1
+                startingpitcher = 4
+                  0
+              weather = None
+                0
+              weather = -1
+                startingpitcher = 1
+                  oppstartingpitcher = 1
+                    0
+                  oppstartingpitcher = 2
+                    0
+                  oppstartingpitcher = 3
+                    homeaway = 0
+                      0
+                    homeaway = 1
+                      1
+                  oppstartingpitcher = 4
+                    0
+                startingpitcher = 2
+                  oppstartingpitcher = 4
+                    0
+                  oppstartingpitcher = 2
+                    1
+                  oppstartingpitcher = 3
+                    0
+                  oppstartingpitcher = None
+                    0
+                  oppstartingpitcher = 5
+                    0
+                startingpitcher = 3
+                  oppstartingpitcher = 1
+                    1
+                  oppstartingpitcher = 2
+                    0
+                  oppstartingpitcher = None
+                    1
+                  oppstartingpitcher = 5
+                    0
+                  oppstartingpitcher = 4
+                    0
+                startingpitcher = None
+                  oppstartingpitcher = 1
+                    0
+                  oppstartingpitcher = 2
+                    0
+                  oppstartingpitcher = 4
+                    1
+                  oppstartingpitcher = 5
+                    0
+                startingpitcher = 5
+                  oppstartingpitcher = 1
+                    0
+                  oppstartingpitcher = 2
+                    homeaway = 0
+                      1
+                    homeaway = 1
+                      0
+                    homeaway = None
+                      0
+                  oppstartingpitcher = 3
+                    0
+                  oppstartingpitcher = 4
+                    1
+                  oppstartingpitcher = 5
+                    homeaway = 0
+                      1
+                    homeaway = 1
+                      0
+                startingpitcher = 4
+                  homeaway = 0
+                    1
+                  homeaway = 1
+                    oppstartingpitcher = 1
+                      0
+                    oppstartingpitcher = 3
+                      0
+          numinjured >= 2.0
+            oppstartingpitcher = 1
+              weather = 0
+                startingpitcher = 1
+                  1
+                startingpitcher = 2
+                  homeaway = 0
+                    1
+                  homeaway = 1
+                    1
+                startingpitcher = 3
+                  homeaway = 0
+                    1
+                  homeaway = 1
+                    0
+                startingpitcher = 4
+                  homeaway = 0
+                    0
+                  homeaway = 1
+                    1
+                startingpitcher = 5
+                  1
+              weather = 1
+                startingpitcher = 1
+                  1
+                startingpitcher = 2
+                  homeaway = 0
+                    0
+                  homeaway = 1
+                    1
+                startingpitcher = 3
+                  1
+                startingpitcher = None
+                  1
+                startingpitcher = 5
+                  homeaway = 0
+                    1
+                  homeaway = 1
+                    1
+                  homeaway = None
+                    1
+                startingpitcher = 4
+                  1
+              weather = None
+                1
+              weather = -1
+                1
+            oppstartingpitcher = 2
+              startingpitcher = 1
+                homeaway = 0
+                  weather = 0
+                    1
+                  weather = -1
+                    0
+                homeaway = 1
+                  1
+              startingpitcher = 2
+                homeaway = 0
+                  weather = 0
+                    1
+                  weather = 1
+                    1
+                homeaway = 1
+                  1
+                homeaway = None
+                  0
+              startingpitcher = 3
+                homeaway = 0
+                  1
+                homeaway = 1
+                  weather = 0
+                    0
+                  weather = -1
+                    1
+                homeaway = None
+                  1
+              startingpitcher = None
+                1
+              startingpitcher = 5
+                weather = 0
+                  homeaway = 0
+                    1
+                  homeaway = 1
+                    1
+                  homeaway = None
+                    0
+                weather = 1
+                  homeaway = 0
+                    1
+                  homeaway = 1
+                    0
+                weather = -1
+                  1
+              startingpitcher = 4
+                1
+            oppstartingpitcher = 3
+              startingpitcher = 1
+                1
+              startingpitcher = 2
+                weather = 0
+                  homeaway = 0
+                    1
+                  homeaway = 1
+                    0
+                weather = 1
+                  1
+                weather = None
+                  1
+                weather = -1
+                  1
+              startingpitcher = 3
+                1
+              startingpitcher = None
+                weather = 1
+                  0
+                weather = None
+                  1
+              startingpitcher = 5
+                1
+              startingpitcher = 4
+                1
+            oppstartingpitcher = None
+              1
+            oppstartingpitcher = 5
+              homeaway = 0
+                startingpitcher = 1
+                  1
+                startingpitcher = 2
+                  weather = 0
+                    1
+                  weather = 1
+                    1
+                  weather = -1
+                    0
+                startingpitcher = 3
+                  1
+                startingpitcher = None
+                  1
+                startingpitcher = 5
+                  1
+                startingpitcher = 4
+                  weather = 0
+                    1
+                  weather = -1
+                    1
+              homeaway = 1
+                1
+              homeaway = None
+                1
+            oppstartingpitcher = 4
+              weather = 0
+                1
+              weather = 1
+                1
+              weather = None
+                1
+              weather = -1
+                homeaway = 0
+                  startingpitcher = 1
+                    0
+                  startingpitcher = 2
+                    1
+                  startingpitcher = 3
+                    1
+                  startingpitcher = None
+                    1
+                  startingpitcher = 5
+                    1
+                  startingpitcher = 4
+                    0
+                homeaway = 1
+                  1
+                homeaway = None
+                  1
+      oppnuminjured >= 3.0
+        weather = 0
+          homeaway = 0
+            0
+          homeaway = 1
+            oppstartingpitcher = 1
+              startingpitcher = 1
+                0
+              startingpitcher = 2
+                1
+              startingpitcher = 5
+                0
+            oppstartingpitcher = 2
+              0
+            oppstartingpitcher = 3
+              startingpitcher = 4
+                0
+              startingpitcher = None
+                1
+              startingpitcher = 5
+                0
+            oppstartingpitcher = 5
+              0
+          homeaway = None
+            startingpitcher = None
+              0
+            startingpitcher = 5
+              1
+        weather = 1
+          homeaway = 0
+            startingpitcher = 1
+              oppstartingpitcher = 1
+                1
+              oppstartingpitcher = 2
+                1
+              oppstartingpitcher = 3
+                1
+              oppstartingpitcher = 4
+                0
+              oppstartingpitcher = 5
+                0
+            startingpitcher = 2
+              0
+            startingpitcher = 3
+              oppstartingpitcher = 3
+                0
+              oppstartingpitcher = 4
+                0
+              oppstartingpitcher = 5
+                1
+            startingpitcher = None
+              0
+            startingpitcher = 5
+              oppstartingpitcher = 2
+                0
+              oppstartingpitcher = 5
+                1
+            startingpitcher = 4
+              oppstartingpitcher = 3
+                0
+              oppstartingpitcher = 4
+                1
+              oppstartingpitcher = 5
+                0
+          homeaway = 1
+            startingpitcher = 1
+              oppstartingpitcher = 1
+                0
+              oppstartingpitcher = None
+                1
+              oppstartingpitcher = 5
+                0
+            startingpitcher = 2
+              oppstartingpitcher = 1
+                0
+              oppstartingpitcher = 3
+                0
+              oppstartingpitcher = 4
+                0
+            startingpitcher = 3
+              1
+            startingpitcher = None
+              1
+            startingpitcher = 5
+              1
+            startingpitcher = 4
+              oppstartingpitcher = 1
+                0
+              oppstartingpitcher = 3
+                0
+              oppstartingpitcher = None
+                1
+              oppstartingpitcher = 5
+                0
+              oppstartingpitcher = 4
+                0
+          homeaway = None
+            0
+        weather = None
+          1
+        weather = -1
+          oppstartingpitcher = 1
+            homeaway = 0
+              0
+            homeaway = 1
+              0
+            homeaway = None
+              1
+          oppstartingpitcher = 2
+            homeaway = 0
+              1
+            homeaway = 1
+              0
+          oppstartingpitcher = 3
+            startingpitcher = 1
+              homeaway = 0
+                0
+              homeaway = 1
+                0
+            startingpitcher = 2
+              0
+            startingpitcher = 3
+              homeaway = 0
+                0
+              homeaway = 1
+                1
+            startingpitcher = 4
+              1
+            startingpitcher = 5
+              1
+          oppstartingpitcher = None
+            0
+          oppstartingpitcher = 5
+            startingpitcher = 1
+              0
+            startingpitcher = 2
+              1
+            startingpitcher = 4
+              0
+            startingpitcher = 5
+              0
+          oppstartingpitcher = 4
+            0
 oppnuminjured >= 4.0
-  0
+  startingpitcher = 1
+    0
+  startingpitcher = 2
+    0
+  startingpitcher = 3
+    0
+  startingpitcher = None
+    weather = 0
+      0
+    weather = 1
+      1
+    weather = -1
+      0
+  startingpitcher = 5
+    0
+  startingpitcher = 4
+    0

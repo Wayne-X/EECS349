@@ -1,0 +1,49 @@
+oppnuminjured < 4.0
+  numinjured < -1.0
+    0
+  numinjured >= -1.0
+    numinjured < 1.0
+      0
+    numinjured >= 1.0
+      oppnuminjured < 3.0
+        oppwinningpercent < 0.195529965
+          winpercent < 0.768189401
+            opprundifferential < 19.0
+              1
+            opprundifferential >= 19.0
+              oppwinningpercent < 0.017852798
+                numinjured < 2.0
+                  rundifferential < 92.0
+                    oppdayssincegame < 4.0
+                      oppdayssincegame < 3.0
+                        winpercent < 0.498324482
+                          oppwinningpercent < -0.027876735
+                            0
+                          oppwinningpercent >= -0.027876735
+                            1
+                        winpercent >= 0.498324482
+                          0
+                      oppdayssincegame >= 3.0
+                        0
+                    oppdayssincegame >= 4.0
+                      0
+                  rundifferential >= 92.0
+                    1
+                numinjured >= 2.0
+                  1
+              oppwinningpercent >= 0.017852798
+                0
+          winpercent >= 0.768189401
+            0
+        oppwinningpercent >= 0.195529965
+          numinjured < 2.0
+            oppnuminjured < 2.0
+              1
+            oppnuminjured >= 2.0
+              0
+          numinjured >= 2.0
+            1
+      oppnuminjured >= 3.0
+        0
+oppnuminjured >= 4.0
+  0

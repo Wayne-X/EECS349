@@ -11,14 +11,14 @@ from modules.predictions import *
 #   options can be found in README.md
 
 options = {
-    'train': 'data/btrain.csv',
-    'validate': 'data/bvalidate.csv',
-    'predict': 'data/btest.csv',
+    'train': 'data/test_btrain.csv',
+    'validate': 'data/test_bvalidate.csv',
+    'predict': 'data/test_btest.csv',
     'limit_splits_on_numerical': 5,
     'limit_depth': 20,
     'print_tree': True,
-    'print_dnf': False,
-    'prune': 'data/bvalidate.csv',
+    'print_dnf': True,
+    'prune': 'data/test_bvalidate.csv',
     'learning_curve': {
         'upper_bound': 1,
         'increment': 0.1
@@ -45,13 +45,6 @@ def decision_tree_driver(train, validate=False, predict=False, prune=False,
     # call the ID3 classification algorithm with the appropriate options
     tree = ID3(train_set, attribute_metadata, numerical_splits_count, depth)
     print '\n'
-
-    # call reduced error pruning using the pruning set
-    if prune != False:
-        print '###\n#  Pruning\n###'
-        pruning_set, _ = parse(prune, False)
-        reduced_error_pruning(tree, pruning_set)
-        print ''
 
     # print tree visually
     if print_tree:
@@ -84,6 +77,44 @@ def decision_tree_driver(train, validate=False, predict=False, prune=False,
         print '###\n#  Generating Predictions on Test Set\n###'
         create_predictions(tree, predict)
         print ''
+
+    # call reduced error pruning using the pruning set
+    if prune != False:
+        print '###\n#  Pruning\n###'
+        pruning_set, _ = parse(prune, False)
+        reduced_error_pruning(tree, pruning_set)
+        print ''
+        # print tree visually
+        if print_tree:
+            print '###\n#  Decision Tree\n###'
+            cursor = open('./output/prune_tree.txt', 'w+')
+            cursor.write(tree.print_tree())
+            cursor.close()
+            print 'Decision Tree written to /output/prune_tree'
+            print ''
+
+        # print tree in disjunctive normalized form
+        if print_dnf:
+            print '###\n#  Decision Tree as DNF\n###'
+            cursor = open('./output/prune_DNF.txt', 'w+')
+            cursor.write(tree.print_dnf_tree())
+            cursor.close()
+            print 'Decision Tree written to /output/prune_DNF'
+            print ''
+
+        # test tree accuracy on validation set
+        if validate != False:
+            print '###\n#  Validating\n###'
+            validate_set, _ = parse(validate, False)
+            accuracy = validation_accuracy(tree, validate_set)
+            print "Accuracy on validation set: " + str(accuracy)
+            print ''
+
+        # generate predictions on the test set
+        if predict != False:
+            print '###\n#  Generating Predictions on Test Set\n###'
+            create_predictions(tree, predict)
+            print ''
 
     # generate a learning curve using the validation set
     if learning_curve and validate:

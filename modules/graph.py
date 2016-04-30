@@ -55,7 +55,11 @@ def get_graph(train_set, attribute_metadata, validate_set, numerical_splits_coun
     pcts = np.linspace(lower, upper, int((upper - lower) / increment) + 1).tolist()
     pruned = get_graph_data(train_set, attribute_metadata, validate_set, numerical_splits_count, depth, iterations, pcts, True)
     unpruned = get_graph_data(train_set, attribute_metadata, validate_set, numerical_splits_count, depth, iterations, pcts, False)
-    # WIP just print out arrays so we can plot it elsewhere
-    print pcts
-    print pruned
-    print unpruned
+
+    plt.plot(pcts, pruned, 'k-x', label='pruned learning')
+    plt.plot(pcts, unpruned, 'r-o', label='unpruned learning')
+    plt.xlabel('Proportion of Training Data Used')
+    plt.ylabel('Validation Accuracy')
+    plt.title('Decision Tree Learning Curve')
+    plt.legend(loc=4)
+    plt.savefig('output/curve.png')

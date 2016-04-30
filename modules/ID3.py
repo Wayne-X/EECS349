@@ -60,8 +60,8 @@ def check_homogenous(data_set):
     ========================================================================================================
     '''
     # Your code here
-    index0 = [x[0] for x in data_set]
-    return index0[0] if index0 and index0.count(index0[0]) == len(index0) else None
+    homo = all((x[0] == data_set[0][0] for x in data_set))
+    return data_set[0][0] if homo else None
     pass
 
 
@@ -91,7 +91,7 @@ def pick_best_attribute(data_set, attribute_metadata, numerical_splits_count):
                       if x['is_nominal'] or n > 0][1:]
     # find best gain and return result in correct format
     # keep missing nominal as it's own category, missing numerical is handled as mode in the helper
-    gains = [(i, gain_ratio_nominal(data_set, i)) if n else (i,) + gain_ratio_numeric(data_set, i, 100) for (i, n) in possible_attrs]
+    gains = [(i, gain_ratio_nominal(data_set, i)) if n else (i,) + gain_ratio_numeric(data_set, i) for (i, n) in possible_attrs]
     best = max(gains, key=lambda x: x[1]) if len(gains) > 0 else (0, 0)
     if best[1] == 0:
         return (False, False)
@@ -123,7 +123,7 @@ def mode(data_set):
     ========================================================================================================
     '''
     # Your code here
-    index0 = [x[0] for x in data_set]
+    index0 = (x[0] for x in data_set)
     counts = {}
     for i in index0:
         counts[i] = counts.get(i, 0) + 1
@@ -146,13 +146,13 @@ def entropy(data_set):
     Output: Returns entropy. See Textbook for formula
     ========================================================================================================
     '''
-    index0 = [x[0] for x in data_set]
+    index0 = (x[0] for x in data_set)
     counts = {}
     for i in index0:
         counts[i] = counts.get(i, 0) + 1
     # reduce + list comprehension to do summation
     return reduce(lambda x, y: x + y,
-                  (-x * math.log(x, 2) for x in (float(x) / len(index0) for x in counts.values())), 0)
+                  (-x * math.log(x, 2) for x in (float(x) / len(data_set) for x in counts.values())), 0)
 
 
 # ======== Test case =============================
@@ -210,13 +210,13 @@ def gain_ratio_numeric(data_set, attribute, steps=1):
     '''
     # Your code here
     thresholds = [x[attribute] for x in data_set[::steps]]
-    split = [split_on_numerical(data_set, attribute, t) for t in thresholds]
+    split = (split_on_numerical(data_set, attribute, t) for t in thresholds)
 
-    gains = [entropy(data_set) - reduce(lambda x, y: x + y,
-                                        [entropy(x) * len(x) / (len(s[0]) + len(s[1])) for x in s], 0) for s in split]
-    intrinsics = [reduce(lambda x, y: x + y, [-x * math.log(x, 2) if x > 0 else 0 for x in
-                                              [float(len(x)) / (len(s[0]) + len(s[1])) for x in s]], 0) for s in split]
-    ratios = [g / i if i != 0 else 0 for (g, i) in zip(gains, intrinsics)]
+    gain_intrinsic = [(entropy(data_set) - reduce(lambda x, y: x + y,
+                                         [entropy(x) * len(x) / (len(s[0]) + len(s[1])) for x in s], 0),
+              reduce(lambda x, y: x + y, [-x * math.log(x, 2) if x > 0 else 0 for x in
+                                          [float(len(x)) / (len(s[0]) + len(s[1])) for x in s]], 0)) for s in split]
+    ratios = [g / i if i != 0 else 0 for (g, i) in gain_intrinsic]
     return max(zip(ratios, thresholds), key=lambda x: x[0])
 
 
