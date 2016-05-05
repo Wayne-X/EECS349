@@ -1,49 +1,738 @@
-oppnuminjured < 4.0
-  numinjured < -1.0
-    0
-  numinjured >= -1.0
-    numinjured < 1.0
-      0
-    numinjured >= 1.0
-      oppnuminjured < 3.0
-        oppwinningpercent < 0.195529965
-          winpercent < 0.768189401
-            opprundifferential < 19.0
-              1
-            opprundifferential >= 19.0
-              oppwinningpercent < 0.017852798
-                numinjured < 2.0
-                  rundifferential < 92.0
-                    oppdayssincegame < 4.0
-                      oppdayssincegame < 3.0
-                        winpercent < 0.498324482
-                          oppwinningpercent < -0.027876735
-                            0
-                          oppwinningpercent >= -0.027876735
-                            1
-                        winpercent >= 0.498324482
-                          0
-                      oppdayssincegame >= 3.0
-                        0
-                    oppdayssincegame >= 4.0
-                      0
-                  rundifferential >= 92.0
-                    1
-                numinjured >= 2.0
-                  1
-              oppwinningpercent >= 0.017852798
-                0
-          winpercent >= 0.768189401
-            0
-        oppwinningpercent >= 0.195529965
-          numinjured < 2.0
-            oppnuminjured < 2.0
-              1
-            oppnuminjured >= 2.0
-              0
-          numinjured >= 2.0
+oppnuminjured < 3.0
+  numinjured < 1.0
+    oppnuminjured < 1.0
+      1
+    oppnuminjured >= 1.0
+      opprundifferential < 8.0
+        1
+      opprundifferential >= 8.0
+        rundifferential < 0.0
+          1
+        rundifferential >= 0.0
+          oppwinningpercent < 8.04962048225e-05
             1
-      oppnuminjured >= 3.0
+          oppwinningpercent >= 8.04962048225e-05
+            opprundifferential < 13.0
+              1
+            opprundifferential >= 13.0
+              winpercent < -0.0695817951036
+                1
+              winpercent >= -0.0695817951036
+                opprundifferential < 18.0
+                  1
+                opprundifferential >= 18.0
+                  0
+  numinjured >= 1.0
+    oppwinningpercent < 0.185949731589
+      oppwinningpercent < 0.000391278068526
+        1
+      oppwinningpercent >= 0.000391278068526
+        opprundifferential < 6.0
+          1
+        opprundifferential >= 6.0
+          rundifferential < 1.0
+            1
+          rundifferential >= 1.0
+            winpercent < 0.0262598481889
+              1
+            winpercent >= 0.0262598481889
+              winpercent < 0.164249256372
+                opprundifferential < 86.0
+                  opprundifferential < 74.0
+                    1
+                  opprundifferential >= 74.0
+                    0
+                opprundifferential >= 86.0
+                  0
+              winpercent >= 0.164249256372
+                dayssincegame < 0.0
+                  1
+                dayssincegame >= 0.0
+                  rundifferential < 103.0
+                    winpercent < 0.258200158533
+                      oppwinningpercent < 0.08803571314
+                        0
+                      oppwinningpercent >= 0.08803571314
+                        temperature < 76.9521430337
+                          winpercent < 0.166559219461
+                            1
+                          winpercent >= 0.166559219461
+                            rundifferential < 22.0
+                              0
+                            rundifferential >= 22.0
+                              numinjured < 2.0
+                                0
+                              numinjured >= 2.0
+                                1
+                        temperature >= 76.9521430337
+                          0
+                    winpercent >= 0.258200158533
+                      opprundifferential < 25.0
+                        rundifferential < 30.0
+                          0
+                        rundifferential >= 30.0
+                          winpercent < 0.557666308382
+                            oppwinningpercent < 0.0707649082743
+                              0
+                            oppwinningpercent >= 0.0707649082743
+                              1
+                          winpercent >= 0.557666308382
+                            0
+                      opprundifferential >= 25.0
+                        0
+                  rundifferential >= 103.0
+                    1
+    oppwinningpercent >= 0.185949731589
+      opprundifferential < 125.0
+        temperature < 39.0176362079
+          0
+        temperature >= 39.0176362079
+          opprundifferential < -23.0
+            1
+          opprundifferential >= -23.0
+            numinjured < 2.0
+              oppnuminjured < 2.0
+                opprundifferential < 116.0
+                  oppwinningpercent < 0.217431466756
+                    winpercent < 0.466183795319
+                      1
+                    winpercent >= 0.466183795319
+                      opprundifferential < 25.0
+                        1
+                      opprundifferential >= 25.0
+                        0
+                  oppwinningpercent >= 0.217431466756
+                    rundifferential < -8.0
+                      0
+                    rundifferential >= -8.0
+                      oppwinningpercent < 0.243589421901
+                        winpercent < 0.369082115211
+                          1
+                        winpercent >= 0.369082115211
+                          opprundifferential < 60.0
+                            rundifferential < 27.0
+                              0
+                            rundifferential >= 27.0
+                              winpercent < 0.690338518007
+                                1
+                              winpercent >= 0.690338518007
+                                0
+                          opprundifferential >= 60.0
+                            0
+                      oppwinningpercent >= 0.243589421901
+                        rundifferential < -1.0
+                          0
+                        rundifferential >= -1.0
+                          oppwinningpercent < 0.295206114614
+                            winpercent < 0.676463772363
+                              dayssincegame < 5.0
+                                temperature < 48.58351766
+                                  0
+                                temperature >= 48.58351766
+                                  rundifferential < 2.0
+                                    0
+                                  rundifferential >= 2.0
+                                    winpercent < 0.534526270632
+                                      1
+                                    winpercent >= 0.534526270632
+                                      rundifferential < 64.0
+                                        0
+                                      rundifferential >= 64.0
+                                        1
+                              dayssincegame >= 5.0
+                                0
+                            winpercent >= 0.676463772363
+                              0
+                          oppwinningpercent >= 0.295206114614
+                            1
+                opprundifferential >= 116.0
+                  1
+              oppnuminjured >= 2.0
+                opprundifferential < 7.0
+                  1
+                opprundifferential >= 7.0
+                  rundifferential < 0.0
+                    1
+                  rundifferential >= 0.0
+                    opprundifferential < 17.0
+                      1
+                    opprundifferential >= 17.0
+                      rundifferential < 113.0
+                        opprundifferential < 25.0
+                          rundifferential < 34.0
+                            0
+                          rundifferential >= 34.0
+                            oppwinningpercent < 0.264186560909
+                              0
+                            oppwinningpercent >= 0.264186560909
+                              1
+                        opprundifferential >= 25.0
+                          winpercent < -0.03311708335
+                            1
+                          winpercent >= -0.03311708335
+                            opprundifferential < 31.0
+                              rundifferential < 85.0
+                                winpercent < 0.149126516021
+                                  1
+                                winpercent >= 0.149126516021
+                                  oppwinningpercent < 1.17664519172
+                                    rundifferential < 53.0
+                                      0
+                                    rundifferential >= 53.0
+                                      winpercent < 0.78017249126
+                                        1
+                                      winpercent >= 0.78017249126
+                                        0
+                                  oppwinningpercent >= 1.17664519172
+                                    1
+                              rundifferential >= 85.0
+                                1
+                            opprundifferential >= 31.0
+                              rundifferential < 103.0
+                                oppdayssincegame < 6.0
+                                  rundifferential < 96.0
+                                    rundifferential < 78.0
+                                      winpercent < 0.0905592086536
+                                        0
+                                      winpercent >= 0.0905592086536
+                                        oppwinningpercent < 1.09149490646
+                                          winpercent < 0.10833348641
+                                            0
+                                          winpercent >= 0.10833348641
+                                            opprundifferential < 38.0
+                                              oppwinningpercent < 1.02913326408
+                                                rundifferential < 77.0
+                                                  oppwinningpercent < 0.896365907665
+                                                    oppdayssincegame < 1.0
+                                                      winpercent < 0.560582170288
+                                                        1
+                                                      winpercent >= 0.560582170288
+                                                        0
+                                                    oppdayssincegame >= 1.0
+                                                      rundifferential < 57.0
+                                                        oppdayssincegame < 5.0
+                                                          0
+                                                        oppdayssincegame >= 5.0
+                                                          1
+                                                      rundifferential >= 57.0
+                                                        1
+                                                  oppwinningpercent >= 0.896365907665
+                                                    0
+                                                rundifferential >= 77.0
+                                                  1
+                                              oppwinningpercent >= 1.02913326408
+                                                1
+                                            opprundifferential >= 38.0
+                                              0
+                                        oppwinningpercent >= 1.09149490646
+                                          0
+                                    rundifferential >= 78.0
+                                      opprundifferential < 33.0
+                                        1
+                                      opprundifferential >= 33.0
+                                        winpercent < 0.182755363847
+                                          1
+                                        winpercent >= 0.182755363847
+                                          0
+                                  rundifferential >= 96.0
+                                    rundifferential < 97.0
+                                      1
+                                    rundifferential >= 97.0
+                                      oppwinningpercent < 0.557922553576
+                                        0
+                                      oppwinningpercent >= 0.557922553576
+                                        1
+                                oppdayssincegame >= 6.0
+                                  0
+                              rundifferential >= 103.0
+                                1
+                      rundifferential >= 113.0
+                        1
+            numinjured >= 2.0
+              rundifferential < 1.0
+                oppwinningpercent < 0.27690942948
+                  1
+                oppwinningpercent >= 0.27690942948
+                  winpercent < 0.863977731416
+                    0
+                  winpercent >= 0.863977731416
+                    1
+              rundifferential >= 1.0
+                oppwinningpercent < 0.217974376888
+                  winpercent < 0.405888109587
+                    rundifferential < 19.0
+                      winpercent < 0.332794674479
+                        1
+                      winpercent >= 0.332794674479
+                        0
+                    rundifferential >= 19.0
+                      opprundifferential < 58.0
+                        1
+                      opprundifferential >= 58.0
+                        opprundifferential < 59.0
+                          0
+                        opprundifferential >= 59.0
+                          rundifferential < 46.0
+                            0
+                          rundifferential >= 46.0
+                            1
+                  winpercent >= 0.405888109587
+                    0
+                oppwinningpercent >= 0.217974376888
+                  temperature < 40.8040023335
+                    0
+                  temperature >= 40.8040023335
+                    oppwinningpercent < 0.23814704458
+                      winpercent < 0.299633784159
+                        1
+                      winpercent >= 0.299633784159
+                        opprundifferential < 22.0
+                          1
+                        opprundifferential >= 22.0
+                          temperature < 77.881178056
+                            winpercent < 0.479700985358
+                              1
+                            winpercent >= 0.479700985358
+                              0
+                          temperature >= 77.881178056
+                            1
+                    oppwinningpercent >= 0.23814704458
+                      opprundifferential < 122.0
+                        winpercent < 0.88666339966
+                          oppwinningpercent < 0.305084430904
+                            winpercent < 0.855392809601
+                              temperature < 49.4261619255
+                                1
+                              temperature >= 49.4261619255
+                                winpercent < 0.557397766735
+                                  temperature < 52.4075761446
+                                    1
+                                  temperature >= 52.4075761446
+                                    temperature < 52.9710146674
+                                      1
+                                    temperature >= 52.9710146674
+                                      rundifferential < 9.0
+                                        1
+                                      rundifferential >= 9.0
+                                        rundifferential < 27.0
+                                          winpercent < 0.552898706821
+                                            temperature < 55.6829641056
+                                              0
+                                            temperature >= 55.6829641056
+                                              opprundifferential < 89.0
+                                                winpercent < 0.44478988458
+                                                  1
+                                                winpercent >= 0.44478988458
+                                                  0
+                                              opprundifferential >= 89.0
+                                                0
+                                          winpercent >= 0.552898706821
+                                            0
+                                        rundifferential >= 27.0
+                                          1
+                                winpercent >= 0.557397766735
+                                  rundifferential < 35.0
+                                    0
+                                  rundifferential >= 35.0
+                                    opprundifferential < 33.0
+                                      1
+                                    opprundifferential >= 33.0
+                                      rundifferential < 78.0
+                                        winpercent < 0.560135690471
+                                          1
+                                        winpercent >= 0.560135690471
+                                          dayssincegame < 5.0
+                                            temperature < 83.0127546666
+                                              oppwinningpercent < 0.304941062291
+                                                numinjured < 5.0
+                                                  rundifferential < 36.0
+                                                    1
+                                                  rundifferential >= 36.0
+                                                    opprundifferential < 45.0
+                                                      1
+                                                    opprundifferential >= 45.0
+                                                      0
+                                                numinjured >= 5.0
+                                                  1
+                                              oppwinningpercent >= 0.304941062291
+                                                1
+                                            temperature >= 83.0127546666
+                                              1
+                                          dayssincegame >= 5.0
+                                            1
+                                      rundifferential >= 78.0
+                                        1
+                            winpercent >= 0.855392809601
+                              0
+                          oppwinningpercent >= 0.305084430904
+                            rundifferential < 3.0
+                              1
+                            rundifferential >= 3.0
+                              winpercent < 0.838389726423
+                                oppwinningpercent < 0.34603784142
+                                  rundifferential < 7.0
+                                    1
+                                  rundifferential >= 7.0
+                                    oppwinningpercent < 0.346034597504
+                                      winpercent < 0.795469819453
+                                        rundifferential < 12.0
+                                          0
+                                        rundifferential >= 12.0
+                                          winpercent < 0.684415630543
+                                            rundifferential < 14.0
+                                              winpercent < 0.504680197828
+                                                1
+                                              winpercent >= 0.504680197828
+                                                0
+                                            rundifferential >= 14.0
+                                              rundifferential < 16.0
+                                                winpercent < 0.561847146056
+                                                  1
+                                                winpercent >= 0.561847146056
+                                                  0
+                                              rundifferential >= 16.0
+                                                temperature < 52.9728637725
+                                                  winpercent < 0.635373147583
+                                                    1
+                                                  winpercent >= 0.635373147583
+                                                    0
+                                                temperature >= 52.9728637725
+                                                  1
+                                          winpercent >= 0.684415630543
+                                            opprundifferential < 83.0
+                                              rundifferential < 57.0
+                                                temperature < 69.6935994245
+                                                  opprundifferential < 43.0
+                                                    1
+                                                  opprundifferential >= 43.0
+                                                    0
+                                                temperature >= 69.6935994245
+                                                  1
+                                              rundifferential >= 57.0
+                                                1
+                                            opprundifferential >= 83.0
+                                              0
+                                      winpercent >= 0.795469819453
+                                        opprundifferential < 35.0
+                                          1
+                                        opprundifferential >= 35.0
+                                          0
+                                    oppwinningpercent >= 0.346034597504
+                                      0
+                                oppwinningpercent >= 0.34603784142
+                                  temperature < 43.2407870381
+                                    0
+                                  temperature >= 43.2407870381
+                                    winpercent < 0.822900727648
+                                      oppwinningpercent < 0.37422845975
+                                        oppwinningpercent < 0.37420344434
+                                          winpercent < 0.804130703507
+                                            winpercent < 0.598979177735
+                                              1
+                                            winpercent >= 0.598979177735
+                                              rundifferential < 21.0
+                                                0
+                                              rundifferential >= 21.0
+                                                winpercent < 0.599068975426
+                                                  0
+                                                winpercent >= 0.599068975426
+                                                  opprundifferential < 104.0
+                                                    opprundifferential < 73.0
+                                                      rundifferential < 28.0
+                                                        0
+                                                      rundifferential >= 28.0
+                                                        oppwinningpercent < 0.374010722399
+                                                          1
+                                                        oppwinningpercent >= 0.374010722399
+                                                          0
+                                                    opprundifferential >= 73.0
+                                                      rundifferential < 55.0
+                                                        0
+                                                      rundifferential >= 55.0
+                                                        1
+                                                  opprundifferential >= 104.0
+                                                    0
+                                          winpercent >= 0.804130703507
+                                            0
+                                        oppwinningpercent >= 0.37420344434
+                                          0
+                                      oppwinningpercent >= 0.37422845975
+                                        1
+                                    winpercent >= 0.822900727648
+                                      oppwinningpercent < 0.380612706131
+                                        0
+                                      oppwinningpercent >= 0.380612706131
+                                        winpercent < 0.822946288868
+                                          0
+                                        winpercent >= 0.822946288868
+                                          rundifferential < 16.0
+                                            0
+                                          rundifferential >= 16.0
+                                            opprundifferential < 73.0
+                                              1
+                                            opprundifferential >= 73.0
+                                              oppwinningpercent < 0.471866417683
+                                                0
+                                              oppwinningpercent >= 0.471866417683
+                                                1
+                              winpercent >= 0.838389726423
+                                oppwinningpercent < 0.328346629659
+                                  0
+                                oppwinningpercent >= 0.328346629659
+                                  oppwinningpercent < 0.386756884769
+                                    0
+                                  oppwinningpercent >= 0.386756884769
+                                    1
+                        winpercent >= 0.88666339966
+                          oppwinningpercent < 0.31531885583
+                            0
+                          oppwinningpercent >= 0.31531885583
+                            temperature < 48.2912756621
+                              0
+                            temperature >= 48.2912756621
+                              rundifferential < 8.0
+                                0
+                              rundifferential >= 8.0
+                                opprundifferential < 112.0
+                                  rundifferential < 23.0
+                                    0
+                                  rundifferential >= 23.0
+                                    temperature < 51.1147932622
+                                      0
+                                    temperature >= 51.1147932622
+                                      oppwinningpercent < 0.372829244276
+                                        opprundifferential < 29.0
+                                          1
+                                        opprundifferential >= 29.0
+                                          0
+                                      oppwinningpercent >= 0.372829244276
+                                        1
+                                opprundifferential >= 112.0
+                                  0
+                      opprundifferential >= 122.0
+                        winpercent < 1.15373839661
+                          1
+                        winpercent >= 1.15373839661
+                          0
+      opprundifferential >= 125.0
         0
-oppnuminjured >= 4.0
-  0
+oppnuminjured >= 3.0
+  numinjured < 3.0
+    opprundifferential < 12.0
+      winpercent < 0.966972875836
+        temperature < 50.7596551624
+          0
+        temperature >= 50.7596551624
+          rundifferential < 14.0
+            0
+          rundifferential >= 14.0
+            1
+      winpercent >= 0.966972875836
+        0
+    opprundifferential >= 12.0
+      rundifferential < 0.0
+        1
+      rundifferential >= 0.0
+        oppwinningpercent < 0.00223359342005
+          1
+        oppwinningpercent >= 0.00223359342005
+          winpercent < -0.151726995211
+            1
+          winpercent >= -0.151726995211
+            opprundifferential < 16.0
+              rundifferential < 17.0
+                0
+              rundifferential >= 17.0
+                winpercent < 0.90314748499
+                  rundifferential < 26.0
+                    dayssincegame < 5.0
+                      0
+                    dayssincegame >= 5.0
+                      1
+                  rundifferential >= 26.0
+                    oppwinningpercent < 0.251809089709
+                      1
+                    oppwinningpercent >= 0.251809089709
+                      oppdayssincegame < 5.0
+                        winpercent < 0.715612571091
+                          1
+                        winpercent >= 0.715612571091
+                          winpercent < 0.755967644945
+                            0
+                          winpercent >= 0.755967644945
+                            1
+                      oppdayssincegame >= 5.0
+                        winpercent < 0.544865342211
+                          1
+                        winpercent >= 0.544865342211
+                          0
+                winpercent >= 0.90314748499
+                  0
+            opprundifferential >= 16.0
+              opprundifferential < 25.0
+                rundifferential < 40.0
+                  0
+                rundifferential >= 40.0
+                  oppwinningpercent < 0.159749730119
+                    0
+                  oppwinningpercent >= 0.159749730119
+                    temperature < 85.1192148539
+                      winpercent < 1.02601531613
+                        oppwinningpercent < 0.208300726947
+                          0
+                        oppwinningpercent >= 0.208300726947
+                          winpercent < 0.787303763287
+                            rundifferential < 58.0
+                              oppwinningpercent < 0.283297626631
+                                0
+                              oppwinningpercent >= 0.283297626631
+                                temperature < 77.1568920117
+                                  winpercent < 0.772411139653
+                                    homeaway = 0
+                                      winpercent < 0.246719603922
+                                        1
+                                      winpercent >= 0.246719603922
+                                        temperature < 52.0446671653
+                                          1
+                                        temperature >= 52.0446671653
+                                          rundifferential < 41.0
+                                            1
+                                          rundifferential >= 41.0
+                                            opprundifferential < 19.0
+                                              winpercent < 0.598619666183
+                                                1
+                                              winpercent >= 0.598619666183
+                                                0
+                                            opprundifferential >= 19.0
+                                              0
+                                    homeaway = 1
+                                      1
+                                    homeaway = None
+                                      1
+                                  winpercent >= 0.772411139653
+                                    0
+                                temperature >= 77.1568920117
+                                  0
+                            rundifferential >= 58.0
+                              1
+                          winpercent >= 0.787303763287
+                            0
+                      winpercent >= 1.02601531613
+                        1
+                    temperature >= 85.1192148539
+                      0
+              opprundifferential >= 25.0
+                winpercent < -0.118581593863
+                  winpercent < -0.124255618796
+                    0
+                  winpercent >= -0.124255618796
+                    1
+                winpercent >= -0.118581593863
+                  opprundifferential < 32.0
+                    oppdayssincegame < 6.0
+                      temperature < 46.6663791115
+                        1
+                      temperature >= 46.6663791115
+                        dayssincegame < 0.0
+                          1
+                        dayssincegame >= 0.0
+                          winpercent < 0.0278026029188
+                            1
+                          winpercent >= 0.0278026029188
+                            rundifferential < 110.0
+                              rundifferential < 58.0
+                                0
+                              rundifferential >= 58.0
+                                oppwinningpercent < 0.221189029692
+                                  0
+                                oppwinningpercent >= 0.221189029692
+                                  temperature < 76.617159721
+                                    1
+                                  temperature >= 76.617159721
+                                    0
+                            rundifferential >= 110.0
+                              1
+                    oppdayssincegame >= 6.0
+                      1
+                  opprundifferential >= 32.0
+                    rundifferential < 96.0
+                      rundifferential < 90.0
+                        oppdayssincegame < 0.0
+                          numinjured < 2.0
+                            0
+                          numinjured >= 2.0
+                            1
+                        oppdayssincegame >= 0.0
+                          winpercent < 0.0811501153349
+                            0
+                          winpercent >= 0.0811501153349
+                            rundifferential < 71.0
+                              0
+                            rundifferential >= 71.0
+                              opprundifferential < 34.0
+                                0
+                              opprundifferential >= 34.0
+                                opprundifferential < 41.0
+                                  oppwinningpercent < 0.966670583058
+                                    rundifferential < 87.0
+                                      oppwinningpercent < 0.512163744731
+                                        0
+                                      oppwinningpercent >= 0.512163744731
+                                        temperature < 72.5109689406
+                                          winpercent < 0.555903408178
+                                            oppwinningpercent < 0.87798143599
+                                              1
+                                            oppwinningpercent >= 0.87798143599
+                                              0
+                                          winpercent >= 0.555903408178
+                                            0
+                                        temperature >= 72.5109689406
+                                          0
+                                    rundifferential >= 87.0
+                                      1
+                                  oppwinningpercent >= 0.966670583058
+                                    1
+                                opprundifferential >= 41.0
+                                  0
+                      rundifferential >= 90.0
+                        0
+                    rundifferential >= 96.0
+                      opprundifferential < 47.0
+                        1
+                      opprundifferential >= 47.0
+                        0
+  numinjured >= 3.0
+    oppnuminjured < 4.0
+      1
+    oppnuminjured >= 4.0
+      opprundifferential < 19.0
+        1
+      opprundifferential >= 19.0
+        numinjured < 4.0
+          rundifferential < 9.0
+            1
+          rundifferential >= 9.0
+            rundifferential < 103.0
+              temperature < 53.1418219521
+                1
+              temperature >= 53.1418219521
+                oppwinningpercent < 0.0535678465651
+                  1
+                oppwinningpercent >= 0.0535678465651
+                  winpercent < 0.0224707735457
+                    1
+                  winpercent >= 0.0224707735457
+                    opprundifferential < 35.0
+                      rundifferential < 72.0
+                        0
+                      rundifferential >= 72.0
+                        1
+                    opprundifferential >= 35.0
+                      0
+            rundifferential >= 103.0
+              1
+        numinjured >= 4.0
+          oppwinningpercent < 0.214507736674
+            0
+          oppwinningpercent >= 0.214507736674
+            1

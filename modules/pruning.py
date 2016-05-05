@@ -41,7 +41,8 @@ def validation_accuracy(tree, validation_set):
     takes a tree and a validation set and returns the accuracy of the set on the given tree
     '''
     # Your code here
-    correct = sum((1 if tree.classify(x) == x[0] else 0 for x in validation_set), 0)
-    total = len(validation_set)
+    correct = [1 if tree.classify(x) == x[0] else 0 for x in validation_set]
+    total_correct = sum(correct, 0)
+    total = len(correct)
 
-    return float(correct) / total
+    return float(total_correct) / total

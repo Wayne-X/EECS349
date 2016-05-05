@@ -11,17 +11,17 @@ from modules.predictions import *
 #   options can be found in README.md
 
 options = {
-    'train': 'data/test_btrain.csv',
-    'validate': 'data/test_bvalidate.csv',
-    'predict': 'data/test_btest.csv',
-    'limit_splits_on_numerical': 5,
-    'limit_depth': 20,
+    'train': 'data/btrain.csv',
+    'validate': 'data/bvalidate.csv',
+    'predict': 'data/btest.csv',
+    'limit_splits_on_numerical': 10,
+    'limit_depth': 40,
     'print_tree': True,
     'print_dnf': True,
-    'prune': 'data/test_bvalidate.csv',
+    'prune': 'data/bvalidate.csv',
     'learning_curve': {
-        'upper_bound': 1,
-        'increment': 0.1
+        'upper_bound': 0.1,
+        'increment': 0.001
     }
 }
 
@@ -69,13 +69,8 @@ def decision_tree_driver(train, validate=False, predict=False, prune=False,
         print '###\n#  Validating\n###'
         validate_set, _ = parse(validate, False)
         accuracy = validation_accuracy(tree, validate_set)
+        print "Accuracy on training set: " + str(validation_accuracy(tree, train_set))
         print "Accuracy on validation set: " + str(accuracy)
-        print ''
-
-    # generate predictions on the test set
-    if predict != False:
-        print '###\n#  Generating Predictions on Test Set\n###'
-        create_predictions(tree, predict)
         print ''
 
     # call reduced error pruning using the pruning set
@@ -107,20 +102,27 @@ def decision_tree_driver(train, validate=False, predict=False, prune=False,
             print '###\n#  Validating\n###'
             validate_set, _ = parse(validate, False)
             accuracy = validation_accuracy(tree, validate_set)
+            print "Accuracy on training set: " + str(validation_accuracy(tree, train_set))
             print "Accuracy on validation set: " + str(accuracy)
             print ''
 
         # generate predictions on the test set
         if predict != False:
             print '###\n#  Generating Predictions on Test Set\n###'
-            create_predictions(tree, predict)
+            with open('./output/predictions.csv', 'w+') as cursor:
+                writer = csv.writer(cursor)
+                fieldnames = ['winner', ' winpercent', ' oppwinpercent', ' weather', ' temperature', ' numinjured', ' oppnuminjured',
+                              ' startingpitcher', ' oppstartingpitcher', ' dayssincegame', ' oppdayssincegame', ' homeaway',
+                              ' rundifferential', ' opprundifferential']
+                writer.writerow(fieldnames)
+                writer.writerows(create_predictions(tree, predict))
             print ''
 
     # generate a learning curve using the validation set
     if learning_curve and validate:
         print '###\n#  Generating Learning Curve\n###'
         validate_set, _ = parse(validate, False)
-        iterations = 10  # number of times to test each size
+        iterations = 5  # number of times to test each size
         get_graph(train_set, attribute_metadata, validate_set,
                   numerical_splits_count, depth, iterations, 0, learning_curve['upper_bound'],
                   learning_curve['increment'])

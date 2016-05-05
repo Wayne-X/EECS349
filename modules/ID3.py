@@ -1,3 +1,4 @@
+import copy
 import math
 from node import Node
 import sys
@@ -38,13 +39,14 @@ def ID3(data_set, attribute_metadata, numerical_splits_count, depth):
     n.is_nominal = split_val is False
     n.splitting_value = split_val
     n.name = attribute_metadata[attr]['name']
-    n.mode = mode(([x[attr]] for x in data_set))
+    n.mode = mode(([x[attr]] for x in data_set if x[attr] is not None))
     if n.is_nominal:
         n.children = {k: ID3(v, attribute_metadata, numerical_splits_count, depth - 1) for (k, v) in
                       split_on_nominal(data_set, attr).items()}
     else:
-        numerical_splits_count[attr] -= 1
-        n.children = [ID3(x, attribute_metadata, numerical_splits_count, depth - 1) for x in
+        new_splits = copy.copy(numerical_splits_count)
+        new_splits[attr] -= 1
+        n.children = [ID3(x, attribute_metadata, new_splits, depth - 1) for x in
                       split_on_numerical(data_set, attr, split_val)]
     return n
 
@@ -87,8 +89,9 @@ def pick_best_attribute(data_set, attribute_metadata, numerical_splits_count):
     ========================================================================================================
     '''
     # determine attributes we can use
-    possible_attrs = [(i, x['is_nominal']) for (i, (x, n)) in enumerate(zip(attribute_metadata, numerical_splits_count))
-                      if x['is_nominal'] or n > 0][1:]
+    possible_attrs = [(i, x['is_nominal']) for (i, (x, n)) in
+                      zip(xrange(len(attribute_metadata)), zip(attribute_metadata, numerical_splits_count))[1:]
+                      if x['is_nominal'] or n > 0]
     # find best gain and return result in correct format
     # keep missing nominal as it's own category, missing numerical is handled as mode in the helper
     gains = [(i, gain_ratio_nominal(data_set, i)) if n else (i,) + gain_ratio_numeric(data_set, i) for (i, n) in possible_attrs]
@@ -150,9 +153,7 @@ def entropy(data_set):
     counts = {}
     for i in index0:
         counts[i] = counts.get(i, 0) + 1
-    # reduce + list comprehension to do summation
-    return reduce(lambda x, y: x + y,
-                  (-x * math.log(x, 2) for x in (float(x) / len(data_set) for x in counts.values())), 0)
+    return sum((-x * math.log(x, 2) for x in (float(x) / len(data_set) for x in counts.values())), 0)
 
 
 # ======== Test case =============================
@@ -175,13 +176,13 @@ def gain_ratio_nominal(data_set, attribute):
     ========================================================================================================
     '''
     # Your code here
-    groups = split_on_nominal(data_set, attribute)
+    filtered_data_set = [x for x in data_set if x is not None]
+    groups = split_on_nominal(filtered_data_set, attribute)
     counts = {x: len(y) for x, y in groups.items()}
-    attrs = set([x[attribute] for x in data_set])
-    gain = entropy(data_set) - reduce(lambda x, y: x + y,
-                                      [entropy(groups[x]) * counts[x] / len(data_set) for x in attrs], 0)
-    intrinsic = reduce(lambda x, y: x + y,
-                       [-x * math.log(x, 2) if x > 0 else 0 for x in [float(x) / len(data_set) for x in counts.values()]], 0)
+    attrs = set([x[attribute] for x in filtered_data_set])
+    gain = entropy(filtered_data_set) - sum([entropy(groups[x]) * counts[x] / len(filtered_data_set) for x in attrs], 0)
+    intrinsic = sum([-x * math.log(x, 2) if x > 0 else 0 for x in [float(x) / len(data_set) for x in counts.values()]], 0)
+
     return gain / intrinsic if intrinsic != 0 else 0
 
 
@@ -208,16 +209,43 @@ def gain_ratio_numeric(data_set, attribute, steps=1):
     Output: This function returns the gain ratio and threshold value
     ========================================================================================================
     '''
-    # Your code here
-    thresholds = [x[attribute] for x in data_set[::steps]]
-    split = (split_on_numerical(data_set, attribute, t) for t in thresholds)
+    # efficient way to compute gain ratio numeric in linear time + log-linear sorting
+    thresholds = sorted([x[attribute] for x in data_set[::steps] if x[attribute] is not None])
+    data = sorted((x for x in data_set if x[attribute] is not None), key=lambda x: x[attribute])
+    ratios = [[x, 0] for x in thresholds]
+    left = [0, 0, 0]
+    right = [len(data), len(filter(lambda x: x[0] == 1, data)), len(filter(lambda x: x[0] == 0, data))]
 
-    gain_intrinsic = [(entropy(data_set) - reduce(lambda x, y: x + y,
-                                         [entropy(x) * len(x) / (len(s[0]) + len(s[1])) for x in s], 0),
-              reduce(lambda x, y: x + y, [-x * math.log(x, 2) if x > 0 else 0 for x in
-                                          [float(len(x)) / (len(s[0]) + len(s[1])) for x in s]], 0)) for s in split]
-    ratios = [g / i if i != 0 else 0 for (g, i) in gain_intrinsic]
-    return max(zip(ratios, thresholds), key=lambda x: x[0])
+    current_split = 0
+    data_index = 0
+
+    base_entropy = entropy(data)
+
+    while current_split < len(thresholds):
+        while data[data_index][attribute] < thresholds[current_split]:
+            left[0] += 1
+            right[0] -= 1
+            if data[data_index][0] == 1:
+                left[1] += 1
+                right[1] -= 1
+            else:
+                left[2] += 1
+                right[2] -= 1
+            data_index += 1
+        ent_left = sum((-x * math.log(x, 2) if x > 0 else 0 for x in (float(x) / left[0] for x in left[1:])),
+                       0) if left[0] > 0 else 1
+        ent_right = sum((-x * math.log(x, 2) if x > 0 else 0 for x in (float(x) / right[0] for x in right[1:])),
+                        0) if right[0] > 0 else 1
+        ratio_left = float(left[0]) / len(data)
+        ratio_right = float(right[0]) / len(data)
+        gain = base_entropy - (ent_left * ratio_left) - (ent_right * ratio_right)
+        intrinsic = - ratio_left * math.log(ratio_left, 2) - ratio_right * math.log(ratio_right, 2) if ratio_left > 0 and ratio_right > 0 \
+            else 0
+        ratios[current_split][1] = gain / intrinsic if intrinsic > 0 else 0
+
+        current_split += 1
+
+    return tuple(max(ratios, key=lambda x: x[1])[::-1]) if ratios else (0, 0)
 
 
 # ======== Test case =============================
@@ -265,10 +293,9 @@ def split_on_numerical(data_set, attribute, splitting_value):
     Output: Tuple of two lists as described above
     ========================================================================================================
     '''
-    # missing treated as mode because it normally counts as -infinity for compares, and this seems less skewed
-    mode_val = mode(([x[attribute]] for x in data_set if x is not None))
-    return (filter(lambda x: (x[attribute] or mode_val) < splitting_value, data_set),
-            filter(lambda x: (x[attribute] or mode_val) >= splitting_value, data_set))
+    # remove None
+    return (filter(lambda x: x[attribute] is not None and x[attribute] < splitting_value, data_set),
+            filter(lambda x: x[attribute] is not None and x[attribute] >= splitting_value, data_set))
     # ======== Test case =============================
     # d_set,a,sval = [[1, 0.25], [1, 0.89], [0, 0.93], [0, 0.48], [1, 0.19], [1, 0.49], [0, 0.6], [0, 0.6], [1, 0.34], [1, 0.19]],1,0.48
     # split_on_numerical(d_set,a,sval) == ([[1, 0.25], [1, 0.19], [1, 0.34], [1, 0.19]],[[1, 0.89], [0, 0.93], [0, 0.48], [1, 0.49], [0, 0.6], [0, 0.6]])

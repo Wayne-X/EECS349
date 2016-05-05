@@ -1,6 +1,8 @@
+import copy
 import os.path
 from operator import xor
 from parse import *
+
 
 # DOCUMENTATION
 # ========================================
@@ -15,3 +17,13 @@ def create_predictions(tree, predict):
     Given a tree and a url to a data_set. Create a csv with a prediction for each result
     using the classify method in node class.
     '''
+    predict_set, _ = parse(predict, True)
+    for i in xrange(len(predict_set)):
+        # classify
+        predict_set[i][0] = tree.classify(predict_set[i])
+        # return Missing attribute to ?
+        for j in xrange(len(predict_set[i])):
+            if predict_set[i][j] is None:
+                predict_set[i][j] = "?"
+    # NOTE: this saves the prediction as the first column. We manually move this to the last column using Excel
+    return predict_set

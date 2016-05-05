@@ -1,0 +1,227 @@
+oppnuminjured < 3.0
+  numinjured < 1.0
+    0
+  numinjured >= 1.0
+    oppwinningpercent < 0.275848688537
+      numinjured < 2.0
+        0
+      numinjured >= 2.0
+        dayssincegame < 1.0
+          1
+        dayssincegame >= 1.0
+          winpercent < 0.645876791537
+            1
+          winpercent >= 0.645876791537
+            opprundifferential < 19.0
+              1
+            opprundifferential >= 19.0
+              rundifferential < 71.0
+                oppdayssincegame < 0.0
+                  0
+                oppdayssincegame >= 0.0
+                  opprundifferential < 48.0
+                    rundifferential < 31.0
+                      0
+                    rundifferential >= 31.0
+                      winpercent < 0.990630654605
+                        oppwinningpercent < 0.0785450133885
+                          1
+                        oppwinningpercent >= 0.0785450133885
+                          oppdayssincegame < 2.0
+                            oppwinningpercent < 0.239387725605
+                              rundifferential < 69.0
+                                winpercent < 0.719412492361
+                                  oppwinningpercent < 0.208056920276
+                                    0
+                                  oppwinningpercent >= 0.208056920276
+                                    1
+                                winpercent >= 0.719412492361
+                                  0
+                              rundifferential >= 69.0
+                                1
+                            oppwinningpercent >= 0.239387725605
+                              1
+                          oppdayssincegame >= 2.0
+                            0
+                      winpercent >= 0.990630654605
+                        0
+                  opprundifferential >= 48.0
+                    oppwinningpercent < 0.242712344003
+                      winpercent < 0.884012212122
+                        oppwinningpercent < 0.0727534070621
+                          1
+                        oppwinningpercent >= 0.0727534070621
+                          0
+                      winpercent >= 0.884012212122
+                        startingpitcher = 1
+                          0
+                        startingpitcher = 2
+                          1
+                        startingpitcher = 3
+                          1
+                        startingpitcher = None
+                          0
+                        startingpitcher = 5
+                          0
+                        startingpitcher = 4
+                          0
+                    oppwinningpercent >= 0.242712344003
+                      0
+              rundifferential >= 71.0
+                0
+    oppwinningpercent >= 0.275848688537
+      oppnuminjured < 2.0
+        1
+      oppnuminjured >= 2.0
+        numinjured < 2.0
+          opprundifferential < 58.0
+            opprundifferential < 40.0
+              rundifferential < 73.0
+                rundifferential < 62.0
+                  0
+                rundifferential >= 62.0
+                  homeaway = 0
+                    opprundifferential < 37.0
+                      winpercent < 0.852890388167
+                        rundifferential < 63.0
+                          oppstartingpitcher = 1
+                            0
+                          oppstartingpitcher = 2
+                            0
+                          oppstartingpitcher = 3
+                            0
+                          oppstartingpitcher = None
+                            0
+                          oppstartingpitcher = 5
+                            1
+                          oppstartingpitcher = 4
+                            0
+                        rundifferential >= 63.0
+                          startingpitcher = 1
+                            0
+                          startingpitcher = 2
+                            1
+                          startingpitcher = 3
+                            opprundifferential < 19.0
+                              1
+                            opprundifferential >= 19.0
+                              0
+                          startingpitcher = None
+                            1
+                          startingpitcher = 5
+                            0
+                          startingpitcher = 4
+                            winpercent < 0.25475371674
+                              0
+                            winpercent >= 0.25475371674
+                              opprundifferential < 27.0
+                                1
+                              opprundifferential >= 27.0
+                                0
+                      winpercent >= 0.852890388167
+                        0
+                    opprundifferential >= 37.0
+                      0
+                  homeaway = 1
+                    1
+                  homeaway = None
+                    0
+              rundifferential >= 73.0
+                1
+            opprundifferential >= 40.0
+              0
+          opprundifferential >= 58.0
+            0
+        numinjured >= 2.0
+          1
+oppnuminjured >= 3.0
+  numinjured < 3.0
+    opprundifferential < 41.0
+      opprundifferential < 28.0
+        rundifferential < 42.0
+          opprundifferential < 22.0
+            opprundifferential < 16.0
+              winpercent < 0.802424445525
+                winpercent < 0.0770638473603
+                  1
+                winpercent >= 0.0770638473603
+                  weather = 0
+                    opprundifferential < -3.0
+                      0
+                    opprundifferential >= -3.0
+                      1
+                  weather = 1
+                    0
+                  weather = None
+                    0
+                  weather = -1
+                    temperature < 55.5062985041
+                      0
+                    temperature >= 55.5062985041
+                      startingpitcher = 1
+                        0
+                      startingpitcher = 2
+                        oppwinningpercent < 0.660919119789
+                          oppstartingpitcher = 2
+                            0
+                          oppstartingpitcher = 3
+                            1
+                          oppstartingpitcher = 4
+                            1
+                          oppstartingpitcher = 5
+                            1
+                        oppwinningpercent >= 0.660919119789
+                          0
+                      startingpitcher = 3
+                        0
+                      startingpitcher = None
+                        oppstartingpitcher = 1
+                          1
+                        oppstartingpitcher = 3
+                          0
+                        oppstartingpitcher = 4
+                          0
+                      startingpitcher = 5
+                        homeaway = 0
+                          0
+                        homeaway = 1
+                          1
+                      startingpitcher = 4
+                        0
+              winpercent >= 0.802424445525
+                0
+            opprundifferential >= 16.0
+              0
+          opprundifferential >= 22.0
+            0
+        rundifferential >= 42.0
+          1
+      opprundifferential >= 28.0
+        homeaway = 0
+          0
+        homeaway = 1
+          winpercent < 0.61176702634
+            rundifferential < 67.0
+              0
+            rundifferential >= 67.0
+              1
+          winpercent >= 0.61176702634
+            0
+        homeaway = None
+          0
+    opprundifferential >= 41.0
+      0
+  numinjured >= 3.0
+    dayssincegame < 0.0
+      1
+    dayssincegame >= 0.0
+      opprundifferential < 33.0
+        1
+      opprundifferential >= 33.0
+        oppwinningpercent < 0.681086030211
+          oppnuminjured < 4.0
+            1
+          oppnuminjured >= 4.0
+            0
+        oppwinningpercent >= 0.681086030211
+          1
